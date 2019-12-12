@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "DEBUG='rtg*' mocha",
+    "start": "DEBUG='rtg*' node server.js"
   },
   "keywords": [],
   "author": "",
@@ -13,11 +13,18 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "http-errors": "^1.7.3",
     "mongoose": "^5.8.0",
     "morgan": "^1.9.1",
     "uuid": "^3.3.3"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "superagent": "^5.1.2"
   }
 }
