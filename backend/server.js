@@ -22,6 +22,8 @@ app.use(morgan('dev'));
 app.use(topicRouter);
 app.use(errors);
 
-app.listen(PORT, () => {
-  debug('listening on: ' + PORT);
+const server = module.exports = app.listen(PORT, () => {
+  debug(`listening on: ${PORT}`);
 });
+
+server.isRunning = true;

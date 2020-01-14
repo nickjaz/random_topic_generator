@@ -6,8 +6,8 @@ const debug = require('debug')('rtg:error-middleware');
 module.exports = function(err, req, res, next) {
   debug('error middleware');
 
-  console.error('msg:', err.msg);
-  console.error('name:', err.name);
+  debug('err msg:', err.msg);
+  debug('err name:', err.name);
 
   if(err.status) {
     res.status(err.status).send(err.name);
@@ -15,7 +15,7 @@ module.exports = function(err, req, res, next) {
     return;
   }
 
-  if(err.name === 'Validation Error') {
+  if(err.name === 'ValidationError') {
     err = createError(400, err.message);
     res.status(err.status).send(err.name);
     next();
